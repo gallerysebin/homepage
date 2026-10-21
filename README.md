@@ -13,6 +13,18 @@
 `index.html`은 글과 구성, `style.css`는 색과 배치, `assets/`는 사진입니다.
 기본 공개 주소: https://gallerysebin.github.io/homepage/
 
+## 문의 기록 기능 설정 (Supabase)
+
+문의 폼은 Supabase에 저장되며, 작성자가 공개에 동의한 문의만 페이지 하단의 ‘공개 문의 기록’에 표시됩니다. 연락처는 어떤 경우에도 페이지에 표시되지 않습니다.
+
+1. [Supabase](https://supabase.com/)에서 새 프로젝트를 만듭니다.
+2. 프로젝트의 **SQL Editor**에서 `supabase-schema.sql` 전체를 실행합니다.
+3. **Project Settings → API**에서 Project URL과 `anon` public key를 복사합니다.
+4. `supabase-config.js`의 두 placeholder를 해당 값으로 바꿉니다. `service_role` 키는 절대 입력하거나 GitHub에 올리지 마세요.
+5. 세 파일을 GitHub에 커밋하면 GitHub Pages에 반영됩니다.
+
+Supabase의 테이블 편집기에서 `inquiries`를 열면 모든 문의와 연락처를 관리할 수 있습니다. 공개 문의를 숨기려면 해당 행의 `public_display`를 끄면 됩니다.
+
 ## 자료 기준
 
 - 제공된 전시 초대장: 전시 기간, 관람 시간, 휴관일, 주소
