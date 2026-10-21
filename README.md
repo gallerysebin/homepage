@@ -20,3 +20,20 @@
 - 제공된 PNG: 작가 사진과 작품 목록 (작품 개별 원본은 아님)
 
 전시 기간은 2026년 10월 17일–11월 1일이며 화·수·목 휴관입니다.
+
+## 전시·프로그램 DB 관리
+
+Supabase 프로젝트 `homepage` (`mvekzxjruttvpdcgqyuf`)를 사용합니다.
+대시보드의 Table Editor에서 `exhibitions`(전시·방문 정보), `programs`(프로그램)를 수정하면
+다음 페이지 방문부터 반영됩니다. `published = true`인 정보만 공개됩니다.
+프로그램은 `position` 순서로 표시하며, `kind`는 일정 목록 `scheduled` 또는 추가 안내 `extra`입니다.
+`details`는 줄별 설명 배열입니다. 브라우저는 공개 콘텐츠 읽기만 가능하고 쓰기는 차단됩니다.
+
+`content.js`가 공개 키로 DB를 조회합니다. 연결 장애나 JavaScript 비활성화 시 기존 HTML 안내를 표시합니다.
+서비스 비밀 키나 DB 비밀번호를 브라우저 코드에 넣지 않습니다.
+
+## 전시 전용 주소
+
+예정 주소는 `https://exhibition.artsebin.com`입니다.
+DNS 관리에서 `exhibition` 이름의 CNAME을 `gallerysebin.github.io`로 연결한 후 GitHub Pages 사용자 도메인을 적용합니다.
+도메인 전환 전까지 기존 GitHub Pages 주소를 사용합니다.

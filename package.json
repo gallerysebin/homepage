@@ -1,0 +1,32 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "description": "조동범 사진전 《일상이라는 슬픔과 불가능한 너머》 안내 페이지입니다. 기존 artsebin.com과 별개로 운영합니다.",
+  "scripts": {
+    "supabase": "node scripts/supabase.cjs",
+    "supabase:version": "node scripts/supabase.cjs --version",
+    "supabase:status": "node scripts/supabase.cjs status",
+    "supabase:start": "node scripts/supabase.cjs start",
+    "supabase:stop": "node scripts/supabase.cjs stop",
+    "supabase:login": "node scripts/supabase.cjs login",
+    "supabase:link": "node scripts/supabase.cjs link",
+    "supabase:db:diff": "node scripts/supabase.cjs db diff",
+    "supabase:db:reset": "node scripts/supabase.cjs db reset",
+    "supabase:db:push": "node scripts/supabase.cjs db push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gallerysebin/homepage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gallerysebin/homepage/issues"
+  },
+  "homepage": "https://github.com/gallerysebin/homepage#readme",
+  "devDependencies": {
+    "supabase": "^2.121.0"
+  }
+}
