@@ -6,7 +6,22 @@
   <title>일상이라는 슬픔과 불가능한 너머 — 조동범 사진전 | 갤러리 세빈</title>
   <meta name="description" content="조동범 사진전 ‘일상이라는 슬픔과 불가능한 너머’. 2026.10.17–11.01, 갤러리 세빈. 전시 안내와 방문 정보를 확인하세요.">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="share.css">
+  <link rel="canonical" href="https://gallerysebin.github.io/homepage/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="갤러리 세빈">
+  <meta property="og:title" content="조동범 사진전 《일상이라는 슬픔과 불가능한 너머》">
+  <meta property="og:description" content="2026.10.17–11.01 · 12:00–18:00 · 화·수·목 휴관. 갤러리 세빈에서 전시와 프로그램을 만나보세요.">
+  <meta property="og:url" content="https://gallerysebin.github.io/homepage/">
+  <meta property="og:image" content="https://gallerysebin.github.io/homepage/assets/exhibition.jpg">
+  <meta property="og:image:alt" content="조동범 사진전 초대장">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="조동범 사진전 | 갤러리 세빈">
+  <meta name="twitter:description" content="일상이라는 슬픔과 불가능한 너머 · 2026.10.17–11.01">
+  <meta name="twitter:image" content="https://gallerysebin.github.io/homepage/assets/exhibition.jpg">
   <script src="content.js" defer></script>
+  <script src="share.js" defer></script>
 </head>
 <body>
   <header><a class="brand" href="#">GALLERY SEBIN<span>갤러리 세빈</span></a><nav aria-label="주요 메뉴"><a href="#about">전시 소개</a><a href="#programs">프로그램</a><a href="#visit">방문 안내</a></nav></header>
@@ -42,6 +57,19 @@
           <div class="inquiry-log-heading"><h3 id="inquiry-log-title">공개 문의 기록</h3><p>공개에 동의한 문의만 표시됩니다.</p></div>
           <div id="inquiry-list" class="inquiry-list" aria-live="polite"><p class="empty-inquiries">문의 기록을 불러오는 중입니다.</p></div>
         </div>
+      </div>
+    </section>
+    <section class="section share-section" aria-labelledby="share-title">
+      <p class="eyebrow">SHARE THE EXHIBITION</p>
+      <div>
+        <h2 id="share-title">함께 보고 싶은 분께.</h2>
+        <div class="share-actions">
+          <button class="button" type="button" id="share-link">전시 공유하기 ↗</button>
+          <button class="button" type="button" id="copy-link">링크 복사</button>
+          <a class="text-link" href="assets/exhibition.jpg" download="gallery-sebin-exhibition.jpg">초대장 이미지 저장 ↓</a>
+        </div>
+        <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
+        <input class="share-fallback" id="share-fallback" type="text" readonly hidden aria-label="복사할 전시 링크">
       </div>
     </section>
   </main>

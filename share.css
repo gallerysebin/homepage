@@ -1,0 +1,8 @@
+.share-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.share-actions button{font-family:inherit;background:transparent;color:var(--ink);cursor:pointer}
+.share-actions button:hover{background:var(--ink);color:var(--paper)}
+.share-actions button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.share-actions .text-link{margin-left:6px}
+.section .share-status{font-size:12px;min-height:1.75em;margin-bottom:0}
+.share-fallback{width:100%;padding:12px;font:inherit;border:1px solid var(--line);background:#fffdf8}
+@media(max-width:700px){.share-actions .text-link{margin:8px 0 0;flex-basis:100%}}
