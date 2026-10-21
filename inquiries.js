@@ -32,7 +32,7 @@
     });
   };
 
-  if (!configured || !window.supabase) {
+  if (!configured) {
     list.innerHTML = "<p class=\"empty-inquiries\">문의 기능을 준비 중입니다.</p>";
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -42,20 +42,19 @@
     return;
   }
 
-  const client = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+  const endpoint = window.SUPABASE_URL + '/rest/v1/inquiries';
+  const headers = { apikey: window.SUPABASE_ANON_KEY };
 
   const loadInquiries = async () => {
-    const { data, error } = await client
-      .from("inquiries")
-      .select("name, message, created_at")
-      .eq("public_display", true)
-      .order("created_at", { ascending: false })
-      .limit(20);
-    if (error) {
+    try {
+      const response = await fetch(endpoint + '?select=name,message,created_at&public_display=eq.true&order=created_at.desc&limit=20', {
+        headers, signal: AbortSignal.timeout(10000), cache: 'no-store'
+      });
+      if (!response.ok) throw new Error('Inquiry read failed');
+      displayInquiries(await response.json());
+    } catch {
       list.innerHTML = "<p class=\"empty-inquiries\">공개 문의를 불러오지 못했습니다.</p>";
-      return;
     }
-    displayInquiries(data);
   };
 
   form.addEventListener("submit", async (event) => {
@@ -71,12 +70,19 @@
     submit.disabled = true;
     status.textContent = "문의 내용을 저장하고 있습니다…";
     status.dataset.state = "";
-    const { error } = await client.from("inquiries").insert(payload);
-    submit.disabled = false;
-    if (error) {
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { ...headers, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+        body: JSON.stringify(payload), signal: AbortSignal.timeout(15000)
+      });
+      if (!response.ok) throw new Error('Inquiry save failed');
+    } catch {
       status.textContent = "저장하지 못했습니다. 잠시 후 다시 시도해 주세요.";
       status.dataset.state = "error";
       return;
+    } finally {
+      submit.disabled = false;
     }
     form.reset();
     status.textContent = "문의가 접수되었습니다. 감사합니다.";
