@@ -18,5 +18,5 @@
 - `.env*` 파일과 비밀 API 키(service_role/secret/PAT)를 출력하거나 커밋하지 않는다. 브라우저 연결용 publishable/anon 공개 키는 RLS 읽기 정책과 함께 코드에 사용할 수 있다.
 - `supabase db push`, `supabase db reset`, 원격 마이그레이션 적용, 시크릿 변경은 데이터 또는 운영 환경에 영향을 줄 수 있으므로 사용자의 명시적인 승인 후에만 실행한다.
 - 원격 프로젝트: `homepage`, ref `mvekzxjruttvpdcgqyuf`, 조직 `gallerysebin's Org`, 서울 리전 `ap-northeast-2`.
-- 이 PC의 로컬 CLI 연결은 완료됐다. 다른 PC에서는 동일 ref로 연결한다. GitHub Pages의 브라우저 코드에는 아직 Supabase 기능이 없다.
+- 이 PC의 로컬 CLI 연결은 완료됐다. 다른 PC에서는 동일 ref로 연결한다. `content.js`가 공개된 전시 및 프로그램을 DB에서 조회한다.
 - DB 비밀번호는 `%LOCALAPPDATA%/Codex/SupabaseCredentials/homepage.xml`에 Windows 사용자 암호화(DPAPI)로 저장했다. 값을 출력하거나 저장소에 복사하지 않는다.
